@@ -1,7 +1,16 @@
 import React from "react";
+import logo from '../assets/logo.png';
+
+
+
 
 function Main() {
-    return <h1>Hello from Main</h1>
+    return (
+        <div id="container">
+            <img className="logo" src={logo} alt="logo" />
+        </div>
+    
+    )
 }
 
 export default Main;
