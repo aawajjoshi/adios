@@ -1,7 +1,8 @@
 import React from "react";
+import Main from './Main';
 
 function App() {
-    return <h1>Hello from App</h1>
+   return <Main />
 };
 
 export default App;
