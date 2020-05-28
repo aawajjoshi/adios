@@ -12,11 +12,17 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
-  
+    margin-top: 80px; 
 }
 
-
+#video-player {
+  background: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
 
   .power-btn {
     position: relative;
