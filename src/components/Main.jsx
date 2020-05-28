@@ -12,8 +12,8 @@ function Main(props) {
     const [play] = useSound(keypress);
     
     function handleClick() {
-        props.onMainshow(false);
-        props.onBootshow(true);
+        props.onMainend(false);
+        props.onBootstart(true);
         return play();
     }
 
