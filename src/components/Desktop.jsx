@@ -6,8 +6,6 @@ import Player from './Webamp';
 
 const ResetStyles = createGlobalStyle`
   ${reset}
-
-  
 `;
 
 function Desktop() {
@@ -25,21 +23,11 @@ function Desktop() {
                 <AppBar>
                     <Toolbar style={{ justifyContent: 'space-between' }}>
                         <Menu />
-                        {/* <TextField placeholder="Search..." width={150} style={{ marginLeft: 4 }} /> */}
                         <TextField placeholder={localTime()} disabled width={100} style={{ WebkitTextFillColor: "black", opacity: "1", color: "black" }} />
                     </Toolbar>
                 </AppBar>
 
                 <Player />
-                {/* <button style={{
-                    position: 'fixed',
-                    top: 300,
-                    left: 15,
-                    background: 'transparent',
-                    border: 'none'
-                }}
-                
-                ><img src={require('../assets/winamp.ico')} style={{width: '60px', height: 'auto'}} onClick={doSomething()}/></button> */}
             </ThemeProvider>
         </div>
     )
