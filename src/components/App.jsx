@@ -38,7 +38,7 @@ function App() {
 
     return (
         <div>
-        {main && <Main 
+        {/* {main && <Main 
             onMainend = {endMain}
             onBootstart = {startBoot}
         />}
@@ -48,7 +48,8 @@ function App() {
             onDeskstart = {startDesktop}
         />}
 
-        {desktop && <Desktop />}
+        {desktop && <Desktop />} */}
+        <Desktop />
         </div>
 
     )
