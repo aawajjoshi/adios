@@ -35,7 +35,6 @@ const config = {
       };
     }, [divRef]);
   
-    // Check if Winamp is supported in this browser
     if (!Webamp.browserIsSupported()) {
       return <div>Not supported</div>;
     }

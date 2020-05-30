@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Main from './Main';
-import Bootup from "./Bootup";
+// import Main from './Main';
+// import Bootup from "./Bootup";
+
 import Desktop from "./Desktop";
+
 // import {
 //     BrowserRouter as Router,
 //     Switch,
@@ -12,29 +14,29 @@ import Desktop from "./Desktop";
 
 function App() {
 
-    const [main, setMain] = useState(true);
-    const [bootUp, setBootUp] = useState(false);
-    const [desktop, setDesktop] = useState(false);
+    // const [main, setMain] = useState(true);
+    // const [bootUp, setBootUp] = useState(false);
+    // const [desktop, setDesktop] = useState(false);
 
-    function endMain(mainEndValue) {
-        setTimeout(() => {
-            return setMain(mainEndValue);
-        },800);
-    }
+    // function endMain(mainEndValue) {
+    //     setTimeout(() => {
+    //         return setMain(mainEndValue);
+    //     },800);
+    // }
     
-    function startBoot(bootStartValue) {
-        setTimeout(() => {
-            return setBootUp(bootStartValue)
-        },800);
-    }
+    // function startBoot(bootStartValue) {
+    //     setTimeout(() => {
+    //         return setBootUp(bootStartValue)
+    //     },800);
+    // }
 
-    function endBoot(bootEndValue) {
-        return setBootUp(bootEndValue);
-    }
+    // function endBoot(bootEndValue) {
+    //     return setBootUp(bootEndValue);
+    // }
 
-    function startDesktop(deskStartValue) {
-        return setDesktop(deskStartValue);
-    }
+    // function startDesktop(deskStartValue) {
+    //     return setDesktop(deskStartValue);
+    // }
 
     return (
         <div>

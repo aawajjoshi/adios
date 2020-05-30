@@ -1,5 +1,5 @@
 import React from "react";
-import vid from '../assets/bootup2.mp4';
+import vid from '../assets/bootup.mp4';
 import ReactPlayer from 'react-player'
 
 function Bootup(props) {

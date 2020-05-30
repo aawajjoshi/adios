@@ -1,11 +1,9 @@
 import React from "react";
 import useSound from 'use-sound';
 
-
 import logo from '../assets/logo.png';
 import powerIcon from '../assets/power.svg';
 import keypress from '../assets/keypress.wav';
-
 
 function Main(props) {
 
@@ -16,7 +14,6 @@ function Main(props) {
         props.onBootstart(true);
         return play();
     }
-
 
     return (
         <div id="container">
