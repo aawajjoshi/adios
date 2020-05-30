@@ -13,7 +13,7 @@ const config = {
             title: "Never Gonna Give You Up"
         },
         // url: '../assets/meme.mp3'
-        url: {meme},      
+        url: meme,      
         duration: 213
       }
     ]
