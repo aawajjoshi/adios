@@ -21,21 +21,28 @@ function Menu() {
           
           <ListItem>
           <img
-            src={require('../assets/man.png')}
+            src={require('../assets/user.ico')}
             alt="user"
             style={{width: 30, position: 'relative', top: 8, marginRight:'5px'}}
           />
           Profile</ListItem>
 
-          <ListItem>📁 Documents</ListItem>
+          <ListItem>
+          <img
+            src={require('../assets/folder.ico')}
+            alt="user"
+            style={{width: 30, position: 'relative', top: 8, marginRight:'5px'}}
+          />
+          Documents</ListItem>
+
           <Divider />
           <ListItem disabled>🔙 Logout</ListItem>
         </List>
       )}
       <Button onClick={handleClick} active={open} style={{ fontWeight: 'bold' }}>
-        {/* <LogoIcon style={{ marginLeft: -2, marginRight: 4 }} /> */}
+
         <img
-            src={require('../assets/home.svg')}
+            src={require('../assets/start.ico')}
             alt="winlogo"
             style={{ marginLeft: -2, marginRight: 5, width: 20 }}
           />
