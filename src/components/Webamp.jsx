@@ -9,10 +9,8 @@ const config = {
     initialTracks: [
       {
         metaData: {
-            artist: "Rick Astley",
-            title: "Never Gonna Give You Up"
+            title: "Journal Entry 01"
         },
-        // url: '../assets/meme.mp3'
         url: meme,      
         duration: 213
       }
@@ -20,7 +18,7 @@ const config = {
   };
 
 
-  function Player() {
+  function Player(props) {
     const [divRef, setDivRef] = useState(null);
   
     useEffect(() => {
@@ -29,17 +27,31 @@ const config = {
       }
       const webamp = new Webamp(config);
       webamp.renderWhenReady(divRef);
-  
+
+      webamp.onTrackDidChange((track => {
+       if (props.play === true){
+         props.play(false);
+       }
+       else {
+        props.play(true);
+       }
+      }))
+    
+
       return () => {
         webamp.dispose();
       };
     }, [divRef]);
+
+  
+  
   
     if (!Webamp.browserIsSupported()) {
       return <div>Not supported</div>;
     }
 
-    return <div ref={setDivRef} />;
+
+    return <div ref={setDivRef} style={{position: 'absolute', bottom: '50%',right: '50%'}}/>;
 
   }
 

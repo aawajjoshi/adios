@@ -6,7 +6,7 @@ function Bootup(props) {
 
     function handleVidFinish() {
         props.onBootend(false);
-        props.onDeskstart(true);
+        props.onLogInstart(true);
     }
 
     return (

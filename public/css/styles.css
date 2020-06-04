@@ -18,7 +18,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 
 #video-player {
@@ -103,4 +103,34 @@ body {
 }
 
 
+#game-info {
+  margin-top: 5%;
+  width: 45%;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+
+.game-info-text {
+  font-family: monospace;
+  text-align: center;
+  color: #a6a6a6;
+  font-size: 1.4em;
+  line-height: 1.5em;
+}
+
+
+#document-btn {
+  /* background: blue;
+  background-image: url('../../src/assets/folder.ico'); */
+  z-index: 10;
+  position: absolute;
+  top: 60;
+  left: 25;
+  
+  padding: 0;
+  font-size: 0;
+  border: none;
+}
