@@ -1,47 +1,54 @@
-import React from "react";
-import useSound from 'use-sound';
+import React, { useContext } from "react";
+import { StoreContext } from "../store/GlobalState";
 
-import logo from '../assets/logo.png';
-import powerIcon from '../assets/power.svg';
-import keypress from '../assets/keypress.wav';
+import useSound from "use-sound";
 
-import themeMusic from '../assets/grace.wav';
-var Sound = require('react-sound').default;
+import logo from "../assets/logo.png";
+import powerIcon from "../assets/power.svg";
+import keypress from "../assets/keypress.wav";
 
-function Main(props) {
+import themeMusic from "../assets/grace.wav";
+var Sound = require("react-sound").default;
 
+function Main( ) {
+  const [state, dispatch] = useContext(StoreContext);
 
-    const [play] = useSound(keypress);
+  const [play] = useSound(keypress);
 
-    function handleClick() {
-        props.onMainend(false);
-        props.onBootstart(true);
-        return play();
-    }
+  function _handleClick() {
+    play();
 
-    return (
+    setTimeout(() => {
+    dispatch({ type: "SET_MAIN", payload: !state.main });
+    dispatch({ type: "SET_BOOT", payload: true });
+    }, 800);
+  }
+
+  return (
+    <>
+      {state.main && (
         <div id="container">
+          <Sound
+            url={themeMusic}
+            autoLoad={true}
+            playStatus={Sound.status.PLAYING}
+          />
 
-            <Sound url={themeMusic}
-                autoLoad={true}
-                playStatus={Sound.status.PLAYING}
-            />
-
-           
-
-            {/* <audio src={startup} autoPlay/> */}
-
-            <article id="game-info">
-                <p className="game-info-text">
-                    Your journalist friend investigating an oligarch has gone missing.
-                    Search their computer to see if you can find any clues on their whereabouts.
+          <article id="game-info">
+            <p className="game-info-text">
+              Your journalist friend investigating an oligarch has gone missing.
+              Search their computer to see if you can find any clues on their
+              whereabouts.
             </p>
-            </article>
-            <img className="logo" src={logo} alt="logo" />
-            <button className="power-btn" onClick={handleClick}><img src={powerIcon} alt="POWER" /></button>
+          </article>
+          <img className="logo" src={logo} alt="logo" />
+          <button className="power-btn" onClick={_handleClick}>
+            <img src={powerIcon} alt="POWER" />
+          </button>
         </div>
-
-    )
+      )}
+    </>
+  );
 }
 
 export default Main;

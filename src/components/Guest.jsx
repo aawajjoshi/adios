@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StoreContext } from "../store/GlobalState";
 import Desktop from "./Desktop";
 
 function Guest() {
-    return <Desktop />
+  const [state, dispatch] = useContext(StoreContext);
+
+  return <>{state.guest && <Desktop />}</>;
 }
 
 export default Guest;

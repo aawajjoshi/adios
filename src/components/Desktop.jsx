@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { reset, themes, AppBar, Toolbar, TextField, Window, WindowContent, WindowHeader, Button } from 'react95';
+import { reset, themes, AppBar, Toolbar, TextField } from 'react95';
 import Menu from './Menu';
 import Explorer from './Explorer';
 

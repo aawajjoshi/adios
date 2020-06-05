@@ -4,18 +4,18 @@ import { Button, List, ListItem, Divider } from 'react95';
 function Menu() {
     const [open, setOpen] = React.useState(false);
 
-    function handleClick() {
+    function _handleClick() {
         setOpen(!open);
     }
 
-    function handleClose() {
+    function _handleClose() {
         setOpen(false);
     }
 
     return (
         <div style={{ position: 'relative', display: 'inline-block' }}>
             {open && (
-                <List horizontalAlign="left" verticalAlign="bottom" open={open} onClick={handleClose}>
+                <List horizontalAlign="left" verticalAlign="bottom" open={open} onClick={_handleClose}>
 
                     <ListItem>
                         <img
@@ -23,7 +23,7 @@ function Menu() {
                             alt="user"
                             style={{ width: 30, position: 'relative', top: 8, marginRight: '5px' }}
                         />
-          Profile</ListItem>
+          GitHub</ListItem>
 
                     <ListItem>
                         <img
@@ -34,10 +34,10 @@ function Menu() {
           Documents</ListItem>
 
                     <Divider />
-                    <ListItem disabled>Logout</ListItem>
+                    <ListItem>Logout</ListItem>
                 </List>
             )}
-            <Button onClick={handleClick} active={open} style={{ fontWeight: 'bold' }}>
+            <Button onClick={_handleClick} active={open} style={{ fontWeight: 'bold' }}>
 
                 <img
                     src={require('../assets/start.ico')}

@@ -1,105 +1,151 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { StoreContext } from "../store/GlobalState";
+
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { TextField, Button, reset, themes, Select, Window, WindowContent, Cutout } from "react95";
-import styled from "styled-components";
+import {
+  TextField,
+  Button,
+  reset,
+  themes,
+  Select,
+  Window,
+  WindowContent,
+  Cutout,
+} from "react95";
+import useSound from "use-sound";
+import startup from "../assets/startup.mp3";
 
 const ResetStyles = createGlobalStyle`
   ${reset}
 `;
 
-function Login(props) {
+function Login() {
+  const [state, dispatch] = useContext(StoreContext);
 
   const [user, setUser] = useState(1);
   const [password, setPassword] = useState("");
-  
+
+  const [play] = useSound(startup);
 
   const items = [
-    { value: 1, label: "⚡ John" },
-    { value: 2, label: "🌿 Guest" },
+    { value: 1, label: "John" },
+    { value: 2, label: "Guest" },
   ];
 
-  const Wrapper = styled.div`
-    background: ${({ theme }) => theme.material};
-    padding: 5rem;
-  `;
+  const _userOnChange = (value) => setUser(value);
 
-
-  const userOnChange = value => setUser(value);
-
-  function passOnChange(event) {
+  function _passOnChange(event) {
     setPassword(event.target.value);
   }
 
-  function logIn() {
-    if (user === 1 && password === "something"){
-      props.logInType(1);
-    }
-    else if (user === 2 && password === "") {
-     props.logInType(2); 
-    }
-    else {
-      props.logInType(3);
+  function _logIn() {
+    if (user === 1 && password === "something") {
+      dispatch({ type: "SET_LOGIN", payload: !state.login });
+
+      setTimeout(() => {
+        play();
+      }, 2000);
+
+      setTimeout(() => {
+        dispatch({ type: "SET_USER", payload: true });
+      }, 4000);
+      
+    } else if (user === 2 && password === "") {
+      dispatch({ type: "SET_LOGIN", payload: !state.login });
+
+      setTimeout(() => {
+        play();
+      }, 2000);
+
+      setTimeout(() => {
+        dispatch({ type: "SET_GUEST", payload: true });
+      }, 4000);
+      
+    } else {
+      return state;
     }
   }
 
-
   return (
-    <div>
-      <ResetStyles />
-      <ThemeProvider theme={themes.default}>
-        <Window
-          style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)"
-          }}
-        >
-          <WindowContent>
-            <Cutout
+    <>
+      {state.login && (
+        <div>
+          <ResetStyles />
+          <ThemeProvider theme={themes.default}>
+            <Window
               style={{
-                padding: "1rem",
-                paddingBottom: "1rem",
-                background: "white",
-                width: "300px",
+                position: "fixed",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
               }}
             >
-              <p style={{ lineHeight: 1.3 }}>Login</p>
+              <WindowContent>
+                <Cutout
+                  style={{
+                    padding: "1rem",
+                    paddingBottom: "1rem",
+                    background: "white",
+                    width: "300px",
+                  }}
+                >
+                  <p style={{ lineHeight: 1.3 }}>Login</p>
 
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginTop: "1.5rem",
-                }}
-              >
-                <label style={{ paddingRight: "0.5rem", fontSize: "1rem" }}>
-                  User:
-                </label>
-                <Select name="userSelect" style={{ marginLeft: "2.3rem"}} onChange={userOnChange} variant="flat" items={items} height={80} width={150} />
-              </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginTop: "1.5rem",
+                    }}
+                  >
+                    <label style={{ paddingRight: "0.5rem", fontSize: "1rem" }}>
+                      User:
+                    </label>
+                    <Select
+                      name="userSelect"
+                      style={{ marginLeft: "2.3rem" }}
+                      onChange={_userOnChange}
+                      variant="flat"
+                      items={items}
+                      height={80}
+                      width={150}
+                    />
+                  </div>
 
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginTop: "1.5rem",
-                }}
-              >
-                <label style={{ paddingRight: "0.5rem", fontSize: "1rem" }}>
-                  Password:
-                </label>
-                <TextField type="password" name="passwordSelect"  onChange={passOnChange} variant="flat" placeholder="password..." items={items} width={150} />
-              </div>
-              
-              <Button style={{marginTop: '1.5rem', marginLeft: '35%'}} onClick={logIn}>Log In</Button>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginTop: "1.5rem",
+                    }}
+                  >
+                    <label style={{ paddingRight: "0.5rem", fontSize: "1rem" }}>
+                      Password:
+                    </label>
+                    <TextField
+                      type="password"
+                      name="passwordSelect"
+                      onChange={_passOnChange}
+                      variant="flat"
+                      placeholder="password..."
+                      items={items}
+                      width={150}
+                    />
+                  </div>
 
-
-            </Cutout>
-          </WindowContent>
-        </Window>
-      </ThemeProvider>
-    </div>
+                  <Button
+                    style={{ marginTop: "1.5rem", marginLeft: "35%" }}
+                    onClick={_logIn}
+                  >
+                    Log In
+                  </Button>
+                </Cutout>
+              </WindowContent>
+            </Window>
+          </ThemeProvider>
+        </div>
+      )}
+    </>
   );
 }
 
