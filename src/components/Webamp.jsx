@@ -18,7 +18,7 @@ const config = {
 };
 
 function Player(props) {
-  const [dispatch] = useContext(StoreContext);
+  const [state, dispatch] = useContext(StoreContext);
 
   const [divRef, setDivRef] = useState(null);
 

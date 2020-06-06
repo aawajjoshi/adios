@@ -69,7 +69,7 @@ function Menu() {
               display: "flex",
               alignItems: "center",
             }}
-            onClick={() => console.log("hello")}
+            onClick={() => dispatch({ type: "SET_EXPLORER", payload: true })}
           >
             <img
               src={require("../assets/folder.ico")}

@@ -63,6 +63,7 @@ function Desktop() {
           alt="folder"
           style={{ position: "absolute", top: 60, left: 25 }}
         />
+        <span style={{ position: 'absolute', top: 110, left: 20, fontWeight: 'bold'}}>Documents</span>
       </button>
 
       <button onDoubleClick={_openTrash}>
@@ -71,6 +72,7 @@ function Desktop() {
           alt="folder"
           style={{ position: "absolute", top: 150, left: 25 }}
         />
+        <span style={{ position: 'absolute', top: 200, left: 20, fontWeight: 'bold'}}>Recyle Bin</span>
       </button>
 
       {state.user && 
@@ -81,11 +83,12 @@ function Desktop() {
           style={{
             position: "absolute",
             top: 240,
-            left: 20,
+            left: 15,
             height: "60px",
             width: "60px",
           }}
         />
+        <span style={{ position: 'absolute', top: 300, left: 23, fontWeight: 'bold'}}>Winamp</span>
       </button>
       }
 

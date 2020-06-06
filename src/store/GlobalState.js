@@ -5,8 +5,8 @@ export const StoreContext = createContext({});
 const initialState = {
   main: false,
   boot: false,
-  login: true,
-  user: false,
+  login: false,
+  user: true,
   guest: false,
   menu: false,
   explorer: false,

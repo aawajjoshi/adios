@@ -33,7 +33,7 @@ function Login() {
   }
 
   function _logIn() {
-    if (user === 1 && password === "something") {
+    if (user === 1 && password === "E(!PjR%vB#_9P&DJ") {
       setUser(1);
       dispatch({ type: "SET_LOGIN", payload: !state.login });
       dispatch({ type: "SET_LOADING", payload: true });
