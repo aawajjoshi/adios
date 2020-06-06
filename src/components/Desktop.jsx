@@ -1,47 +1,86 @@
-import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { reset, themes, AppBar, Toolbar, TextField } from 'react95';
-import Menu from './Menu';
-import Explorer from './Explorer';
-
-const ResetStyles = createGlobalStyle`
-  ${reset}
-`;
+import React, { useEffect, useState, useContext } from "react";
+import { StoreContext } from "../store/GlobalState";
+import { AppBar, Toolbar, TextField } from "react95";
+import Menu from "./Menu";
 
 function Desktop() {
 
-    function localTime() {
-        const date = new Date();
-        return date.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
-    }
-    function doSomething() {
-       return <Explorer />
-    }
+  const [state, dispatch] = useContext(StoreContext);
 
-    return (
+  const [time, setTime] = useState(new Date());
 
-        <div className="test">
+  useEffect(() => {
+    var timeID = setInterval(() => localTime(), 60000);
 
-            <ResetStyles />
-            <ThemeProvider theme={themes.default}>
+    return () => clearInterval(timeID);
+  });
 
-                <AppBar style={{ zIndex: 1 }}>
-                    <Toolbar style={{ justifyContent: 'space-between' }}>
-                        <Menu />
-                        <TextField placeholder={localTime()} disabled width={100} style={{ WebkitTextFillColor: "black", opacity: "1", color: "black" }} />
-                    </Toolbar>
-                </AppBar>
-            </ThemeProvider>
+  function localTime() {
+    setTime(new Date());
+  }
 
-            <button onDoubleClick={doSomething}><img src={require('../assets/folder.ico')} alt="folder" style={{ position: "absolute", top: 60, left: 25 }} /></button>
+  function _openDocuments() {
+    dispatch({ type: "SET_EXPLORER", payload: true });
+  }
 
-        </div>
-    )
-};
+  function _openTrash(){
+      console.log("trash");
+  }
 
+  function _openWinamp() {
+    dispatch({ type: "SET_WINAMP", payload: true  });
+  }
+
+  return (
+    <div className="test">
+      <AppBar style={{ zIndex: 1 }}>
+        <Toolbar style={{ justifyContent: "space-between" }}>
+          <Menu />
+          <TextField
+            placeholder={time.toLocaleTimeString(navigator.language, {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+            disabled
+            width={100}
+            style={{
+              WebkitTextFillColor: "black",
+              opacity: "1",
+              color: "black",
+            }}
+          />
+        </Toolbar>
+      </AppBar>
+
+      <button onDoubleClick={_openDocuments}>
+        <img
+          src={require("../assets/folder.ico")}
+          alt="folder"
+          style={{ position: "absolute", top: 60, left: 25 }}
+        />
+      </button>
+      <button onDoubleClick={_openTrash}>
+        <img
+          src={require("../assets/recycle-bin.ico")}
+          alt="folder"
+          style={{ position: "absolute", top: 150, left: 25 }}
+        />
+      </button>
+      <button onDoubleClick={_openWinamp}>
+        <img
+          src={require("../assets/winamp.ico")}
+          alt="winamp"
+          style={{
+            position: "absolute",
+            top: 240,
+            left: 20,
+            height: "60px",
+            width: "60px",
+          }}
+        />
+      </button>
+    </div>
+  );
+}
 
 export default Desktop;
-
-
-
-

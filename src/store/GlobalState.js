@@ -3,11 +3,14 @@ import React, { createContext, useReducer } from "react";
 export const StoreContext = createContext({});
 
 const initialState = {
-  main: true,
+  main: false,
   boot: false,
   login: false,
-  user: false,
+  user: true,
   guest: false,
+  menu: false,
+  explorer: false,
+  winamp: false
 };
 
 function reducer(state, action) {
@@ -37,6 +40,21 @@ function reducer(state, action) {
         ...state,
         guest: action.payload,
       };
+    case "SET_MENU":
+      return {
+          ...state,
+          menu: action.payload,
+      };
+    case "SET_EXPLORER":
+        return {
+            ...state,
+            explorer: action.payload,
+        };
+    case "SET_WINAMP":
+        return {
+            ...state,
+            winamp: action.payload
+        };
     default:
       return state;
   }

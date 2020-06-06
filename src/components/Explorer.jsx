@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { reset, themes, AppBar, Toolbar, TextField, Window, WindowContent, WindowHeader, Button, Cutout, } from "react95";
-
-const ResetStyles = createGlobalStyle`
-  ${reset}
-`;
-
+import React, { useState, useContext } from "react";
+import { StoreContext } from "../store/GlobalState";
+import { Toolbar, Window, WindowContent, WindowHeader, Button, Cutout, } from "react95";
 
 
 function Explorer() {
+
+  const [state, dispatch] = useContext(StoreContext);
+
   return (
+    <>
+    {state.explorer && 
     <div>
-      <ResetStyles />
-      <ThemeProvider theme={themes.default}>
+
         <Window
           style={{
             position: "fixed",
@@ -33,6 +32,7 @@ function Explorer() {
               style={{ marginRight: "-6px", marginTop: "1px" }}
               size={"sm"}
               square
+              onClick={() => dispatch({ type: "SET_EXPLORER", payload: false })}
             >
               <span
                 style={{ fontWeight: "bold", transform: "translateY(-1px)" }}
@@ -73,8 +73,9 @@ function Explorer() {
             </WindowContent>
           </Window>
         </Window>
-      </ThemeProvider>
     </div>
+    }
+    </>
   );
 }
 

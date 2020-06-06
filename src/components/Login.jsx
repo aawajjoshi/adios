@@ -5,8 +5,6 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import {
   TextField,
   Button,
-  reset,
-  themes,
   Select,
   Window,
   WindowContent,
@@ -15,9 +13,6 @@ import {
 import useSound from "use-sound";
 import startup from "../assets/startup.mp3";
 
-const ResetStyles = createGlobalStyle`
-  ${reset}
-`;
 
 function Login() {
   const [state, dispatch] = useContext(StoreContext);
@@ -70,8 +65,6 @@ function Login() {
     <>
       {state.login && (
         <div>
-          <ResetStyles />
-          <ThemeProvider theme={themes.default}>
             <Window
               style={{
                 position: "fixed",
@@ -142,7 +135,6 @@ function Login() {
                 </Cutout>
               </WindowContent>
             </Window>
-          </ThemeProvider>
         </div>
       )}
     </>
