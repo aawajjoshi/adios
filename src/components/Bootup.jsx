@@ -17,7 +17,7 @@ function Bootup() {
   return (
     <>
       {state.boot && (
-        <div classNmame="something">
+        <div>
           <div id="video-player">
             <ReactPlayer
               width="100%"

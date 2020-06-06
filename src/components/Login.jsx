@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { StoreContext } from "../store/GlobalState";
 
-import { createGlobalStyle, ThemeProvider } from "styled-components";
 import {
   TextField,
   Button,
@@ -35,24 +34,30 @@ function Login() {
 
   function _logIn() {
     if (user === 1 && password === "something") {
+      setUser(1);
       dispatch({ type: "SET_LOGIN", payload: !state.login });
+      dispatch({ type: "SET_LOADING", payload: true });
 
       setTimeout(() => {
         play();
       }, 2000);
 
       setTimeout(() => {
+        dispatch({ type: "SET_LOADING", payload: false });
         dispatch({ type: "SET_USER", payload: true });
       }, 4000);
       
     } else if (user === 2 && password === "") {
+      setUser(1);
       dispatch({ type: "SET_LOGIN", payload: !state.login });
+      dispatch({ type: "SET_LOADING", payload: true });
 
       setTimeout(() => {
         play();
       }, 2000);
 
       setTimeout(() => {
+        dispatch({ type: "SET_LOADING", payload: false });
         dispatch({ type: "SET_GUEST", payload: true });
       }, 4000);
       

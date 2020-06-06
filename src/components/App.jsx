@@ -9,15 +9,12 @@ import Login from "./Login";
 import User from "./User";
 import Guest from "./Guest";
 import Explorer from './Explorer';
+import Trash from './Trash';
+import Document from './Document';
+import Loading from './Loading';
 
 import { reset, themes } from 'react95';
 
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     Link
-// } from "react-router-dom";
 
 
 const ResetStyles = createGlobalStyle`
@@ -36,6 +33,9 @@ function App() {
             <User />
             <Guest />
             <Explorer />
+            <Trash />
+            <Document />
+            <Loading />
             </ThemeProvider>
         </Store>
     )

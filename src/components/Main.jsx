@@ -9,6 +9,7 @@ import keypress from "../assets/keypress.wav";
 
 import themeMusic from "../assets/grace.wav";
 var Sound = require("react-sound").default;
+window.soundManager.setup({debugMode: false});
 
 function Main( ) {
   const [state, dispatch] = useContext(StoreContext);

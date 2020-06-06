@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { StoreContext } from "../store/GlobalState";
 import { Button, List, ListItem, Divider } from "react95";
 
@@ -26,8 +26,16 @@ function Menu() {
   function _handleLogOut() {
     dispatch({ type: "SET_USER", payload: false });
     dispatch({ type: "SET_GUEST", payload: false });
+    dispatch({ type: "SET_EXPLORER", payload: false });
+    dispatch({ type: "SET_TRASH", payload: false });
+    dispatch({ type: "SET_DOCUMENT", payload: false });
+    dispatch({ type: "SET_WINAMP", payload: false });
+    dispatch({ type: "SET_GIF", payload: false });
+    dispatch({ type: "SET_LOADING", payload: true });
     play();
+
     setTimeout(() => {
+      dispatch({ type: "SET_LOADING", payload: false });
       dispatch({ type: "SET_LOGIN", payload: true });
     }, 1000);
   }

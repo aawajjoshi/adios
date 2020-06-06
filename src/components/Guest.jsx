@@ -3,7 +3,7 @@ import { StoreContext } from "../store/GlobalState";
 import Desktop from "./Desktop";
 
 function Guest() {
-  const [state, dispatch] = useContext(StoreContext);
+  const [state] = useContext(StoreContext);
 
   return <>{state.guest && <Desktop />}</>;
 }

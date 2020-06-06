@@ -5,12 +5,16 @@ export const StoreContext = createContext({});
 const initialState = {
   main: false,
   boot: false,
-  login: false,
-  user: true,
+  login: true,
+  user: false,
   guest: false,
   menu: false,
   explorer: false,
-  winamp: false
+  trash: false,
+  document: false,
+  loading: false,
+  winamp: false,
+  gif: false,
 };
 
 function reducer(state, action) {
@@ -42,19 +46,39 @@ function reducer(state, action) {
       };
     case "SET_MENU":
       return {
-          ...state,
-          menu: action.payload,
+        ...state,
+        menu: action.payload,
       };
     case "SET_EXPLORER":
-        return {
-            ...state,
-            explorer: action.payload,
-        };
+      return {
+        ...state,
+        explorer: action.payload,
+      };
+    case "SET_TRASH":
+      return {
+        ...state,
+        trash: action.payload,
+      };
+    case "SET_DOCUMENT":
+      return {
+        ...state,
+        document: action.payload,
+      };
+    case "SET_LOADING":
+      return {
+        ...state,
+        loading: action.payload,
+      };
     case "SET_WINAMP":
-        return {
-            ...state,
-            winamp: action.payload
-        };
+      return {
+        ...state,
+        winamp: action.payload,
+      };
+    case "SET_GIF":
+      return {
+        ...state,
+        gif: action.payload,
+      };
     default:
       return state;
   }

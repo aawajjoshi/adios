@@ -10,10 +10,15 @@ function Desktop() {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
+    let mounted = false;
+    if (!mounted){
     var timeID = setInterval(() => localTime(), 60000);
-
-    return () => clearInterval(timeID);
-  });
+    }
+    return () => {
+    mounted = true;
+    clearInterval(timeID);
+    }
+  }, []);
 
   function localTime() {
     setTime(new Date());
@@ -24,7 +29,7 @@ function Desktop() {
   }
 
   function _openTrash(){
-      console.log("trash");
+    dispatch({ type: "SET_TRASH", payload: true });
   }
 
   function _openWinamp() {
@@ -59,6 +64,7 @@ function Desktop() {
           style={{ position: "absolute", top: 60, left: 25 }}
         />
       </button>
+
       <button onDoubleClick={_openTrash}>
         <img
           src={require("../assets/recycle-bin.ico")}
@@ -66,6 +72,8 @@ function Desktop() {
           style={{ position: "absolute", top: 150, left: 25 }}
         />
       </button>
+
+      {state.user && 
       <button onDoubleClick={_openWinamp}>
         <img
           src={require("../assets/winamp.ico")}
@@ -79,6 +87,8 @@ function Desktop() {
           }}
         />
       </button>
+      }
+
     </div>
   );
 }

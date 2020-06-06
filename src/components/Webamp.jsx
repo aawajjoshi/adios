@@ -18,7 +18,7 @@ const config = {
 };
 
 function Player(props) {
-  const [state, dispatch] = useContext(StoreContext);
+  const [dispatch] = useContext(StoreContext);
 
   const [divRef, setDivRef] = useState(null);
 
@@ -29,11 +29,13 @@ function Player(props) {
     const webamp = new Webamp(config);
     webamp.renderWhenReady(divRef);
 
-    webamp.onTrackDidChange((track) => {
-      if (props.play === true) {
-        props.play(false);
-      } else {
-        props.play(true);
+    webamp.onTrackDidChange(() => {
+
+      if (webamp.getMediaStatus() === "PLAYING"){
+        dispatch({ type: "SET_GIF", payload: true });
+      }
+      else if (webamp.getMediaStatus() === "STOPPED"){
+        dispatch({ type: "SET_GIF", payload: false });
       }
     });
 
@@ -41,10 +43,11 @@ function Player(props) {
       dispatch({ type: "SET_WINAMP", payload: false });
     });
 
+
     return () => {
       webamp.dispose();
     };
-  }, [divRef]);
+  }, [divRef, dispatch]);
 
   if (!Webamp.browserIsSupported()) {
     return <div>Not supported</div>;
@@ -59,3 +62,4 @@ function Player(props) {
 }
 
 export default Player;
+
