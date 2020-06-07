@@ -11,6 +11,7 @@ import Guest from "./Guest";
 import Explorer from './Explorer';
 import Trash from './Trash';
 import Document from './Document';
+import Clipping from './Clipping';
 import Loading from './Loading';
 
 import { reset, themes } from 'react95';
@@ -35,6 +36,7 @@ function App() {
             <Explorer />
             <Trash />
             <Document />
+            <Clipping />
             <Loading />
             </ThemeProvider>
         </Store>

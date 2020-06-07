@@ -12,6 +12,7 @@ const initialState = {
   explorer: false,
   trash: false,
   document: false,
+  news: false,
   loading: false,
   winamp: false,
   gif: false,
@@ -63,6 +64,11 @@ function reducer(state, action) {
       return {
         ...state,
         document: action.payload,
+      };
+    case "SET_NEWS":
+      return {
+        ...state,
+        news: action.payload,
       };
     case "SET_LOADING":
       return {
