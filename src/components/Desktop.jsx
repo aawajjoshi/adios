@@ -37,7 +37,7 @@ function Desktop() {
   }
 
   return (
-    <div className="test">
+    <div className="wallpaper">
       <AppBar style={{ zIndex: 1 }}>
         <Toolbar style={{ justifyContent: "space-between" }}>
           <Menu />

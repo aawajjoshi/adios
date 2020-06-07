@@ -28,14 +28,14 @@ function Main( ) {
   return (
     <>
       {state.main && (
-        <div id="container">
+        <div className="container">
           <Sound
             url={themeMusic}
             autoLoad={true}
             playStatus={Sound.status.PLAYING}
           />
 
-          <article id="game-info">
+          <article className="game-info">
             <p className="game-info-text">
               Your journalist friend investigating a scandal revolving around an oligarch has gone missing.
               Search their computer to see if you can find any clues on their

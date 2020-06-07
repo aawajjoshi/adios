@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css';
 import Store from '../store/GlobalState';
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
