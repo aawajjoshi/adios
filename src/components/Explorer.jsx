@@ -10,6 +10,7 @@ import {
   Cutout,
 } from "react95";
 
+
 function Explorer() {
   const [state, dispatch] = useContext(StoreContext);
 

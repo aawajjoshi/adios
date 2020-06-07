@@ -37,7 +37,7 @@ function Main( ) {
 
           <article id="game-info">
             <p className="game-info-text">
-              Your journalist friend investigating an oligarch has gone missing.
+              Your journalist friend investigating a scandal revolving around an oligarch has gone missing.
               Search their computer to see if you can find any clues on their
               whereabouts.
             </p>

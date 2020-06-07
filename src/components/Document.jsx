@@ -10,6 +10,7 @@ import {
   Cutout,
 } from "react95";
 
+
 function Document() {
   const [state, dispatch] = useContext(StoreContext);
 

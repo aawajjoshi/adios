@@ -3,10 +3,10 @@ import React, { createContext, useReducer } from "react";
 export const StoreContext = createContext({});
 
 const initialState = {
-  main: false,
+  main: true,
   boot: false,
   login: false,
-  user: true,
+  user: false,
   guest: false,
   menu: false,
   explorer: false,
