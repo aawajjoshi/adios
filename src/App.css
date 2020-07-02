@@ -10,7 +10,8 @@
 
 .game-info {
     margin-top: 5%;
-    width: 45%;
+    width: 58vw;
+    margin-bottom: 2%;
     text-align: center;
     display: block;
     margin-left: auto;
@@ -21,13 +22,13 @@
     font-family: monospace;
     text-align: center;
     color: #a6a6a6;
-    font-size: 1.4em;
+    font-size: calc(9px + 1vw);
     line-height: 1.5em;
   }
   
 
 .logo {
-  width: 200px;
+  width: calc(200px + 1vw);
   display: block;
   margin-left: auto;
   margin-right: auto;
