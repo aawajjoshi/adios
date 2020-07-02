@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7206e2d2a47f1035b2e20ea309a677dd",
+    "revision": "7a11f48e57547eaf6e93008e5f1f74bf",
     "url": "/adios/index.html"
   },
   {
-    "revision": "e3a770de79ef2c6ba3d1",
-    "url": "/adios/static/css/main.ef26fcf8.chunk.css"
+    "revision": "2be3e460221c0a040c9b",
+    "url": "/adios/static/css/main.54950793.chunk.css"
   },
   {
     "revision": "9bf2cc68c025cda8943f",
@@ -72,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/adios/static/js/9.bc6bf87a.chunk.js"
   },
   {
-    "revision": "e3a770de79ef2c6ba3d1",
+    "revision": "2be3e460221c0a040c9b",
     "url": "/adios/static/js/main.baf5b5d2.chunk.js"
   },
   {

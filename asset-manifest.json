@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/adios/static/css/main.ef26fcf8.chunk.css",
+    "main.css": "/adios/static/css/main.54950793.chunk.css",
     "main.js": "/adios/static/js/main.baf5b5d2.chunk.js",
     "main.js.map": "/adios/static/js/main.baf5b5d2.chunk.js.map",
     "runtime-main.js": "/adios/static/js/runtime-main.c72f67db.js",
@@ -34,9 +34,9 @@
     "static/js/15.74f10a8e.chunk.js": "/adios/static/js/15.74f10a8e.chunk.js",
     "static/js/15.74f10a8e.chunk.js.map": "/adios/static/js/15.74f10a8e.chunk.js.map",
     "index.html": "/adios/index.html",
-    "precache-manifest.46c303d20c6906ba5882c58c67d66a31.js": "/adios/precache-manifest.46c303d20c6906ba5882c58c67d66a31.js",
+    "precache-manifest.2a893bc463ed7bb3fa7f02213e890f9b.js": "/adios/precache-manifest.2a893bc463ed7bb3fa7f02213e890f9b.js",
     "service-worker.js": "/adios/service-worker.js",
-    "static/css/main.ef26fcf8.chunk.css.map": "/adios/static/css/main.ef26fcf8.chunk.css.map",
+    "static/css/main.54950793.chunk.css.map": "/adios/static/css/main.54950793.chunk.css.map",
     "static/js/2.572bf525.chunk.js.LICENSE.txt": "/adios/static/js/2.572bf525.chunk.js.LICENSE.txt",
     "static/js/3.e865cd35.chunk.js.LICENSE.txt": "/adios/static/js/3.e865cd35.chunk.js.LICENSE.txt",
     "static/media/bootup.mp4": "/adios/static/media/bootup.a7e29d66.mp4",
@@ -60,7 +60,7 @@
   "entrypoints": [
     "static/js/runtime-main.c72f67db.js",
     "static/js/2.572bf525.chunk.js",
-    "static/css/main.ef26fcf8.chunk.css",
+    "static/css/main.54950793.chunk.css",
     "static/js/main.baf5b5d2.chunk.js"
   ]
 }
