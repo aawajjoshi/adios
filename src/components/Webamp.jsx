@@ -1,7 +1,7 @@
-import React from "react";
-import { StoreContext } from "../store/GlobalState";
-import Webamp from "webamp";
-import meme from "../assets/meme.mp3";
+import React from 'react';
+import { StoreContext } from '../store/GlobalState';
+import Webamp from 'webamp';
+import meme from '../assets/meme.mp3';
 
 const { useState, useEffect, useContext } = React;
 
@@ -9,7 +9,7 @@ const config = {
   initialTracks: [
     {
       metaData: {
-        title: "Journal Entry 01",
+        title: 'Journal Entry 01',
       },
       url: meme,
       duration: 213,
@@ -30,19 +30,16 @@ function Player(props) {
     webamp.renderWhenReady(divRef);
 
     webamp.onTrackDidChange(() => {
-
-      if (webamp.getMediaStatus() === "PLAYING"){
-        dispatch({ type: "SET_GIF", payload: true });
-      }
-      else if (webamp.getMediaStatus() === "STOPPED"){
-        dispatch({ type: "SET_GIF", payload: false });
+      if (webamp.getMediaStatus() === 'PLAYING') {
+        dispatch({ type: 'SET_GIF', payload: true });
+      } else if (webamp.getMediaStatus() === 'STOPPED') {
+        dispatch({ type: 'SET_GIF', payload: false });
       }
     });
 
     webamp.onClose(() => {
-      dispatch({ type: "SET_WINAMP", payload: false });
+      dispatch({ type: 'SET_WINAMP', payload: false });
     });
-
 
     return () => {
       webamp.dispose();
@@ -56,10 +53,9 @@ function Player(props) {
   return (
     <div
       ref={setDivRef}
-      style={{ position: "absolute", bottom: "50%", right: "50%" }}
+      style={{ position: 'absolute', bottom: '50%', right: '50%' }}
     />
   );
 }
 
 export default Player;
-

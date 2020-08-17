@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
-import { StoreContext } from "../store/GlobalState";
+import React, { useContext } from 'react';
+import { StoreContext } from '../store/GlobalState';
 
-import useSound from "use-sound";
+import useSound from 'use-sound';
 
-import logo from "../assets/logo.png";
-import powerIcon from "../assets/power.svg";
-import keypress from "../assets/keypress.wav";
+import logo from '../assets/logo.png';
+import powerIcon from '../assets/power.svg';
+import keypress from '../assets/keypress.wav';
 
-import themeMusic from "../assets/grace.wav";
-var Sound = require("react-sound").default;
-window.soundManager.setup({debugMode: false});
+import themeMusic from '../assets/grace.wav';
+var Sound = require('react-sound').default;
+window.soundManager.setup({ debugMode: false });
 
-function Main( ) {
+function Main() {
   const [state, dispatch] = useContext(StoreContext);
 
   const [play] = useSound(keypress);
@@ -20,8 +20,8 @@ function Main( ) {
     play();
 
     setTimeout(() => {
-    dispatch({ type: "SET_MAIN", payload: !state.main });
-    dispatch({ type: "SET_BOOT", payload: true });
+      dispatch({ type: 'SET_MAIN', payload: !state.main });
+      dispatch({ type: 'SET_BOOT', payload: true });
     }, 800);
   }
 
@@ -37,9 +37,9 @@ function Main( ) {
 
           <article className="game-info">
             <p className="game-info-text">
-              Your journalist friend investigating a scandal revolving around an oligarch has gone missing.
-              Search their computer to see if you can find any clues on their
-              whereabouts.
+              Your journalist friend investigating a scandal revolving around an
+              oligarch has gone missing. Search their computer to see if you can
+              find any clues on their whereabouts.
             </p>
           </article>
           <img className="logo" src={logo} alt="logo" />

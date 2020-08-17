@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
-import { StoreContext } from "../store/GlobalState";
+import React, { useContext } from 'react';
+import { StoreContext } from '../store/GlobalState';
 
-import vid from "../assets/bootup.mp4";
-import ReactPlayer from "react-player";
+import vid from '../assets/bootup.mp4';
+import ReactPlayer from 'react-player';
 
 function Bootup() {
   const [state, dispatch] = useContext(StoreContext);
 
   function _handleVidFinish() {
-    dispatch({ type: "SET_BOOT", payload: !state.boot });
+    dispatch({ type: 'SET_BOOT', payload: !state.boot });
     setTimeout(() => {
-      dispatch({ type: "SET_LOGIN", payload: true });
+      dispatch({ type: 'SET_LOGIN', payload: true });
     }, 800);
   }
 
