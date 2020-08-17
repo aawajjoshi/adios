@@ -2,7 +2,7 @@
 
 ## About
 
-adiOS is mystery game that is designed around a fictional vintage (circa 98’) operating system called 'adiOS'.
+adiOS is mystery game that is designed around a fictional vintage (circa 98’) operating system called 'adiOS'. Can you save your friend?
 
 ## Installing/Running
 
